@@ -12,6 +12,6 @@ class ShoePhoto extends Model
 
     protected $fillable = [
         'photo',
-        'shoe_id'
+        'shoe_id',
     ];
 }
