@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Services;
-
-use App\Repositories\Interfaces\CategoryRepositoryInterface;
-use App\Repositories\Interfaces\ShoeRepositoryInterface;
+use App\Repositories\Contracts\CategoryRepositoryInterface;
+use App\Repositories\Contracts\ShoeRepositoryInterface;
 
 class FrontService
 {

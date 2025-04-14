@@ -7,7 +7,7 @@ use App\Repositories\Contracts\ShoeRepositoryInterface;
 
 class ShoeRepository implements ShoeRepositoryInterface
 {
-    public function getPopularShoe($limit = 4)
+    public function getPopularShoes($limit = 4)
     {
         return Shoe::where('is_popular', true)->take($limit)->get();
     }

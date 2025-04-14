@@ -7,10 +7,10 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\ShoeRepository;
 use App\Repositories\OrderRepository;
 use App\Repositories\PromoCodeRepository;
-use App\Repositories\Interfaces\CategoryRepositoryInterface;
-use App\Repositories\Interfaces\ShoeRepositoryInterface;
-use App\Repositories\Interfaces\OrderRepositoryInterface;
-use App\Repositories\Interfaces\PromoCodeRepositoryInterface;
+use App\Repositories\Contracts\CategoryRepositoryInterface;
+use App\Repositories\Contracts\ShoeRepositoryInterface;
+use App\Repositories\Contracts\OrderRepositoryInterface;
+use App\Repositories\Contracts\PromoCodeRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
         $this->app->singleton(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->singleton(ShoeRepositoryInterface::class, ShoeRepository::class);
         $this->app->singleton(OrderRepositoryInterface::class, OrderRepository::class);
