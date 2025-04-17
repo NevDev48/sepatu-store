@@ -54,7 +54,7 @@ class OrderService
 
         $orderData['sub_total_amount'] = $subTotalAmount;
         $orderData['total_tax'] = $totalTax;
-        $orderData['grand_total_amount'] = $grandTotalAmount;
+        $orderData['grand_total_amount'] = $grandTotal;
 
         return compact('orderData', 'shoe');
     }
@@ -109,7 +109,7 @@ class OrderService
                 $validated['promo_code_id'] = $orderData['promo_code_id'];
                 $validated['shoe_id'] = $orderData['shoe_id'];
                 $validated['shoe_size'] = $orderData['size_id'];
-                
+
                 $validated['is_paid'] = false;
                 $validated['booking_trx_id'] = ProductTransaction::generateUniqueTrxId();
 

@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\ProductTransaction;
 use App\Repositories\Contracts\OrderRepositoryInterface;
-use Illuminate\Support\Facedes\Session;
+use Illuminate\Support\Facades\Session;
 
 class OrderRepository implements OrderRepositoryInterface
 {
