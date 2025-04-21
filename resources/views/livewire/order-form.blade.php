@@ -60,10 +60,18 @@
             </div>
             <div class="flex flex-col gap-2">
                 <label for="promo" class="font-semibold">Promo Code</label>
-                <div class="flex items-center w-full rounded-full ring-1 ring-[#090917] px-[14px] gap-[10px] overflow-hidden transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FFC700]">
-                    <img src="{{asset('assets/images/icons/discount-shape.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
-                    <input type="text" wire:model.live.debounce.500ms="promoCode" name="promo" id="promo" class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#878785] py-[14px]" placeholder="Input the promo code">
-                </div>
+                    <div class="flex items-center w-full rounded-full ring-1 ring-[#090917] px-[14px] gap-[10px] overflow-hidden transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FFC700]">
+                        <img src="{{asset('assets/images/icons/discount-shape.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
+                        <input
+                            type="text"
+                            wire:model.live.debounce.500ms="promoCode"
+                            name="promo"
+                            id="promo"
+                            class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#878785] py-[14px]"
+                            placeholder="Input the promo code"
+                            wire:keydown.enter="applyPromoCode"
+                        >
+                    </div>
 
                 @if (session()->has('message'))
                     <span class="font-semibold text-sm leading-[21px] text-[#01A625]">Yeay! anda mendapatkan promo spesial</span>
@@ -81,7 +89,7 @@
             </div>
             <div class="flex items-center justify-between">
                 <p class="font-semibold">Discount</p>
-                <p id="discount" class="font-bold text-[#FF1943]">- Rp {{ $discount }}</p>
+                <p id="discount" class="font-bold text-[#FF1943]">- Rp {{ number_format($discount, 0, ',', '.') }}</p>
             </div>
         </div>
         <div id="bottom-nav" class="relative flex h-[100px] w-full shrink-0 mt-5">

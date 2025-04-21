@@ -69,6 +69,41 @@ class OrderForm extends Component
         }
     }
 
+    public function updatedPromoCode($value)
+    {
+        $this->applyPromoCode();
+    }
+
+    // Ubah method applyPromoCode() menjadi:
+    public function applyPromoCode()
+    {
+        if (empty($this->promoCode)) {
+            $this->resetDiscount();
+            return;
+        }
+
+        $result = $this->orderService->applyPromoCode($this->promoCode, $this->subTotalAmount);
+
+        if (isset($result['error'])) {
+            $this->promoError = $result['error'];
+            $this->resetDiscount();
+        } else {
+            $this->promoMessage = 'Yeay! Anda mendapatkan promo spesial';
+            $this->discount = $result['discount'];
+            $this->promoCodeId = $result['promoCodeId'];
+            $this->totalDiscountAmount = $result['discount'];
+            $this->calculateTotal();
+        }
+    }
+
+    protected function resetDiscount()
+    {
+        $this->discount = 0;
+        $this->calculateTotal();
+        $this->promoCodeId = null;
+        $this->totalDiscountAmount = 0;
+    }
+
     public function render()
     {
         return view('livewire.order-form');

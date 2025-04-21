@@ -66,7 +66,7 @@ class OrderService
         if ($promo) {
             $discount = $promo->discount_amount;
             $grandTotalAmount = $subTotalAmount - $discount;
-            $promoCode = $promo->$id;
+            $promoCodeId = $promo->id;
             return['discount' => $discount, 'grand_total_amount' => $grandTotalAmount, 'promoCodeId' => $promoCodeId];
         }
 
