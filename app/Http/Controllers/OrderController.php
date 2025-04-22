@@ -39,7 +39,6 @@ class OrderController extends Controller
     public function customerData()
     {
         $data = $this->orderService->getOrderDetails();
-        dd($data);
         return view('order.customer_data', $data);
     }
 
@@ -53,7 +52,8 @@ class OrderController extends Controller
 
     public function payment()
     {
-        $validated = $this->orderService->getOrderDetails();
+        $data = $this->orderService->getOrderDetails();
+        dd($data);
         return view('order.payment', $data);
     }
 
