@@ -95,10 +95,10 @@
                     <p class="font-semibold">Sub Total</p>
                     <p class="font-bold">Rp {{ number_format($orderData['sub_total_amount'], 0, ',', '.') }}</p>
                 </div>
-                <div class="flex items-center justify-between">
+                {{-- <div class="flex items-center justify-between">
                     <p class="font-semibold">Promo Code</p>
-                    <p class="font-bold">BELANJA</p>
-                </div>
+                    <p class="font-bold">{{  }}</p>
+                </div> --}}
                 <div class="flex items-center justify-between">
                     <p class="font-semibold">Discount</p>
                     <p class="font-bold text-[#FF1943]">- Rp {{ number_format($orderData['total_discount_amount'], 0, ',', '.') }}</p>
