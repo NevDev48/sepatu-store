@@ -10,7 +10,7 @@
         <form action="{{ route('front.payment_confirm') }}" enctype="multipart/form-data" method="POST" class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
             @csrf
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
-                <a href="customer-data.html">
+                <a href="{{ route('front.customer_data') }}">
                     <img src="{{asset('assets/images/icons/back.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
                 <p class="font-bold text-lg leading-[27px]">Review & Payment</p>
@@ -95,10 +95,10 @@
                     <p class="font-semibold">Sub Total</p>
                     <p class="font-bold">Rp {{ number_format($orderData['sub_total_amount'], 0, ',', '.') }}</p>
                 </div>
-                {{-- <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between">
                     <p class="font-semibold">Promo Code</p>
-                    <p class="font-bold">{{  }}</p>
-                </div> --}}
+                    <p class="font-bold">{{ $orderData['promo_code'] }}</p>
+                </div>
                 <div class="flex items-center justify-between">
                     <p class="font-semibold">Discount</p>
                     <p class="font-bold text-[#FF1943]">- Rp {{ number_format($orderData['total_discount_amount'], 0, ',', '.') }}</p>
